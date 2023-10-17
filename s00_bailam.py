@@ -49,6 +49,40 @@ greeting('2100')             | Good evening!          | 14
 #endregion debai
 
 #region bailam
+
+
 def greeting(hour_str):
-  return 'todo'
-#endregion bailam
+  y=0
+  if "am" in hour_str.lower():
+    try:
+      y=int(hour_str[0:2])
+    except ValueError:
+      y=int(hour_str[0])
+  elif "pm" in hour_str.lower():
+    try:
+      y=int(hour_str[0:2])+12
+    except ValueError:
+      y=int(hour_str[0])+12
+  else:
+    y=int(hour_str[0:2])
+  if y>=0 and y<12:
+    return("Good morning!")
+  elif y>=12 and y<18:
+    return("Good afternoon!")
+  elif y>=18 and y<24:
+    return("Good evening!")
+
+print(greeting('6am'))
+print(greeting('6 am'))
+print(greeting('6AM'))
+print(greeting('6 AM'))
+print(greeting('9pm'))
+print(greeting('0900pm'))
+print(greeting('09:00pm'))
+print(greeting('09:00 pm'))
+print(greeting('09:00 PM'))
+print(greeting('1pm'))
+print(greeting('06:00'))
+print(greeting('0600'))
+print(greeting('21:00'))
+print(greeting('2100'))
